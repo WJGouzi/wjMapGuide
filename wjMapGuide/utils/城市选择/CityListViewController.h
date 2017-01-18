@@ -19,7 +19,6 @@
 @property (strong, nonatomic) id<CityListViewDelegate>delegate;
 
 
-
 @property (strong, nonatomic) NSMutableArray *arrayLocatingCity;//定位城市数据
 @property (strong, nonatomic) NSMutableArray *arrayHotCity;//热门城市数据
 @property (strong, nonatomic) NSMutableArray *arrayHistoricalCity;//常用城市数据

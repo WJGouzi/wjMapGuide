@@ -86,7 +86,7 @@
     
 	// Do any additional setup after loading the view.
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    _tableView.frame = CGRectMake(0,searchView.frame.origin.y+searchView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-64);
+    _tableView.frame = CGRectMake(0,searchView.frame.origin.y+searchView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 108);
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -174,7 +174,6 @@
     
     
     //常用城市
-
     UILabel *title2 = [[UILabel alloc]initWithFrame:CGRectMake(10, _locatingCityGroupView.frame.origin.y+_locatingCityGroupView.frame.size.height+10, 160, 21)];
     title2.text = @"常用城市";
     title2.font = [UIFont systemFontOfSize:15];
@@ -249,11 +248,9 @@
            [_arrayCitys addObject:cityName];
         }
     }
-    
-    
-    
-
 }
+
+
 
 #pragma mark - tableView
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -284,7 +281,6 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    
     NSMutableArray *indexNumber = [NSMutableArray arrayWithArray:_keys];
 //    NSString *strHot = @"#";
 //    //添加搜索前的#号
@@ -344,14 +340,12 @@
 //        [self hiddenTipsView];
 //    });
     
-    
     _timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(hiddenTipsView) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     
 }
 
 - (void)hiddenTipsView {
-    
     [UIView animateWithDuration:0.2 animations:^{
         _bgImageView.alpha = 0;
         _tipsView.alpha = 0;
@@ -423,7 +417,7 @@ NSInteger cityNameSort(id str1, id str2, void *context) {
  *  通过搜索条件过滤得到搜索结果
  *
  *  @param searchText 关键词
- *  @param scope      范围
+ *  scope 范围
  */
 - (void)filterContentForSearchText:(NSString*)searchText {
     if (searchText.length > 0) {
@@ -450,7 +444,6 @@ NSInteger cityNameSort(id str1, id str2, void *context) {
                 [_searchResultDic setObject:sortCityArr forKey:firstHeadPinYin];
             }
         }
-        //    NSLog(@"dic = %@",dic);
 
         if (resultAry.count>0) {
             _cities = nil;

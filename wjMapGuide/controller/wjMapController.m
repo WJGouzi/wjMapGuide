@@ -232,6 +232,28 @@ static NSString *localCityName = nil;
     [btn addTarget:self action:@selector(searchLocation:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+// 点击跳转到下个界面
+- (void)searchLocation:(UIButton *)location {
+    //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    wjSearchResultController *searchVC = [[wjSearchResultController alloc] init];
+    // 属性传值
+    searchVC.inputLocationLatitude = self.location.coordinate.latitude;
+    searchVC.inputLocationLongitude = self.location.coordinate.longitude;
+    // 这里可以进行传值，将城市的名字传入到搜索类中
+    if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"定位"]) {
+        [ProgressHUD showError:@"请您选择当前所在的城市!" Interaction:YES];
+        return;
+    }
+    searchVC.localCityName = self.navigationItem.leftBarButtonItem.title;
+    // 设置代理
+    searchVC.targetLocationDelegate = self;
+    // 移除之前的锚点
+    [self removeAnnotationAndPolyLine];
+    [self.navigationController pushViewController:searchVC animated:YES];
+}
+
+#pragma mark - 导航栏左边按钮的设置
 - (void)navigationSettingsWithName:(NSString *)cityName {
     // 导航栏的左键
     UIBarButtonItem *chooseCity = [[UIBarButtonItem alloc] initWithTitle:cityName style:UIBarButtonItemStylePlain target:self action:@selector(chooseCity:)];
@@ -257,7 +279,6 @@ static NSString *localCityName = nil;
         cityListView.arrayHistoricalCity = [NSMutableArray arrayWithObjects:@"无", nil];
     }
     //定位城市列表
-#warning 城市定位是需要通过amap的定位确定的  不是从本地读取的
     cityListView.arrayLocatingCity = [NSMutableArray arrayWithObjects:localCityName, nil]; // [NSMutableArray arrayWithObjects:@"成都", nil];
     
     // 避免再次modal的时候失败
@@ -265,9 +286,17 @@ static NSString *localCityName = nil;
     [self presentViewController:cityListView animated:YES completion:nil];
     
 }
+
 // 点击城市的按钮的代理
 - (void)didClickedWithCityName:(NSString*)cityName {
     if ([cityName isEqualToString:@"无"]) {
+        return;
+    }
+    if ([cityName isEqualToString:@""]) {
+        [ProgressHUD show:@"正在定位，请稍后!" Interaction:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [ProgressHUD dismiss];
+        });
         return;
     }
     [self navigationSettingsWithName:cityName];
@@ -275,27 +304,6 @@ static NSString *localCityName = nil;
     [file saveLocalCityNameInPlistFileWithCityName:cityName andPath:self.plistFilePath];
 }
 
-
-// 点击跳转到下个界面
-- (void)searchLocation:(UIButton *)location {
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-
-    wjSearchResultController *searchVC = [[wjSearchResultController alloc] init];
-    // 属性传值
-    searchVC.inputLocationLatitude = self.location.coordinate.latitude;
-    searchVC.inputLocationLongitude = self.location.coordinate.longitude;
-    // 这里可以进行传值，将城市的名字传入到搜索类中
-    if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"定位"]) {
-        [ProgressHUD showError:@"请您选择当前所在的城市!" Interaction:YES];
-        return;
-    }
-    searchVC.localCityName = self.navigationItem.leftBarButtonItem.title;
-    // 设置代理
-    searchVC.targetLocationDelegate = self;
-    // 移除之前的锚点
-    [self removeAnnotationAndPolyLine];
-    [self.navigationController pushViewController:searchVC animated:YES];
-}
 
 #pragma mark - 锚点的设置
 - (void)annotationsSettingsWithName:(NSString *)name andCoordinate:(CLLocationCoordinate2D)coordinate  {
@@ -402,8 +410,8 @@ static NSString *localCityName = nil;
         //解析response获取地址描述，具体解析见 Demo
         localCityName = response.regeocode.addressComponent.city;
         NSLog(@"local city is %@", localCityName);
-        if ([localCityName hasSuffix:@"\u5e02"]) {
-           localCityName = [localCityName stringByReplacingOccurrencesOfString:@"\u5e02" withString:@""];
+        if ([localCityName hasSuffix:@"\u5e02"]) { // 代表的是“成都市”的“市”的Unicode的编码
+           localCityName = [localCityName stringByReplacingOccurrencesOfString:@"\u5e02" withString:@""]; // 如果有“市”就用“”代替
         }
     }
 }

@@ -44,7 +44,7 @@
     
     UILabel *titleName = [[UILabel alloc] init];
     titleName.font = [UIFont systemFontOfSize:kCityItemViewTitleTextFont];
-    titleName.textColor = [UIColor grayColor];
+    titleName.textColor = mainColor; //[UIColor grayColor];
     titleName.textAlignment = NSTextAlignmentCenter;
     titleName.backgroundColor = [UIColor clearColor];
     titleName.numberOfLines = 1;
