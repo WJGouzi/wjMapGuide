@@ -1,0 +1,43 @@
+//
+//  PrefixHeader.pch
+//  wjMapGuide
+//
+//  Created by gouzi on 2017/1/9.
+//  Copyright © 2017年 wangjun. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You willalso need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/* 高德地图的APP key*/
+#define appKey @"26f25f425f805b796376ffa7f8fe2aa3"
+
+/* 以ip6s作为基准的屏幕适配*/
+#define screenRate (screenWidth)/375.0f
+/* 适配前的屏幕宽*/
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+/* 适配后的屏幕宽*/
+#define screenW [UIScreen mainScreen].bounds.size.width * screenRate
+/* 适配后的屏幕高*/
+#define screenH [UIScreen mainScreen].bounds.size.height * screenRate
+/*** 当前系统版本判断 ***/
+#define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
+/* 主色调*/
+#define mainColor [UIColor colorWithRed:0.965 green:0.290 blue:0.608 alpha:1.0f]
+
+#define plistPathSearch 
+
+#pragma mark - 添加一些类库\三方的库
+#import "WJNSAttributed.h"
+#import "ProgressHUD.h"
+#import "wjLocalNotificaitonController.h"
+
+#import <MAMapKit/MAMapKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+
+#endif /* PrefixHeader_pch */
