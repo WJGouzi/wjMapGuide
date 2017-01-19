@@ -40,7 +40,8 @@
 //        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
 //    }
     // 这是iOS10的适配
-    if ([application respondsToSelector:@selector(requestAuthorizationWithOptions:completionHandler:)]) {
+//    if ([application respondsToSelector:@selector(requestAuthorizationWithOptions:completionHandler:)]) {
+    if (iOS(10)) {
         // 第二步
         UNUserNotificationCenter *notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
         // 申请权限

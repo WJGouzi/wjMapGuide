@@ -143,6 +143,7 @@ static NSString *localCityName = nil;
     // 代理
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
+    
     // 逆地理编码
     self.searchLocation = [[AMapSearchAPI alloc] init];
     self.searchLocation.delegate = self;
@@ -326,9 +327,9 @@ static NSString *localCityName = nil;
     MAMapPoint point2 = MAMapPointForCoordinate(pointTwo);
     CLLocationDistance distance = MAMetersBetweenMapPoints(point1, point2);
     if (distance < 1000) {
-        self.targetPoint.subtitle = [NSString stringWithFormat:@"两地相距:%.2lf m", distance];
+        self.targetPoint.subtitle = [NSString stringWithFormat:@"两地相距:%.2lfm", distance];
     } else if (distance >= 1000) {
-        self.targetPoint.subtitle = [NSString stringWithFormat:@"两地相距:%.2lf km", distance / 1000];
+        self.targetPoint.subtitle = [NSString stringWithFormat:@"两地相距:%.2lfkm", distance / 1000];
     }
 }
 
@@ -399,7 +400,6 @@ static NSString *localCityName = nil;
     regeo.location  = [AMapGeoPoint locationWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
     regeo.requireExtension = YES;
     [self.searchLocation AMapReGoecodeSearch:regeo];
-    
     // 停止定位
     [self.locationManager stopUpdatingLocation];
 }
@@ -430,6 +430,8 @@ static NSString *localCityName = nil;
             [self drawTwoPointsLineWithSelfLocation:self.location.coordinate andTargetCoordinate:self.targetPoint.coordinate];
             // 持续更新显示两点之间的距离
             [self caculateTwoPointDistanceWithPointOne:self.targetPoint.coordinate andPointTwo:self.location.coordinate];
+            // 持续显示定位点的精度
+            self.targetPoint.subtitle = [self.targetPoint.subtitle stringByAppendingString:[NSString stringWithFormat:@" 精度:%.2fm", userLocation.location.horizontalAccuracy]];
         }
     } else {
         return;
@@ -488,9 +490,9 @@ static NSString *localCityName = nil;
     }
 }
 
-
 // 知道围栏的状态是否发生改变，或者定位是否失败
 - (void)amapGeoFenceManager:(AMapGeoFenceManager *)manager didGeoFencesStatusChangedForRegion:(AMapGeoFenceRegion *)region customID:(NSString *)customID error:(NSError *)error {
+    NSLog(@"执行了地理围栏的代理");
     if (error) {
         [ProgressHUD showError:@"当前的GPS信号弱，请到开阔地方！"];
     }
@@ -503,11 +505,11 @@ static NSString *localCityName = nil;
         // 这里需要开启本地通知的回调
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (iOS(10.0)) {
-                [localNotificationVC iOS10LocalNotification];
+                [localNotificationVC localNotificationsInIOS10];
                 
             } else {
                 [localNotificationVC startLocalNotification];
-            }            
+            }
             // 到达指定的区域内后需要关闭后台的定位,移除`连线`和`锚点`以及`暂停通知`
             self.fenceManager.allowsBackgroundLocationUpdates = NO;
             [self removeAnnotationAndPolyLine];
@@ -515,7 +517,7 @@ static NSString *localCityName = nil;
         });
     }
     if (region.fenceStatus == AMapGeoFenceRegionStatusOutside) {
-       // NSLog(@"在区域外！");
+        NSLog(@"在区域外！");
     }
     if (region.fenceStatus == AMapGeoFenceRegionStatusStayed) {
         // 长时间在区域内的时候，关闭通知以及移除地理围栏

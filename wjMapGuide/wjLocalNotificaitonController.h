@@ -13,5 +13,5 @@
 - (void)startLocalNotification;
 - (void)closeLocalNotification;
 // ios10的通知
-- (void)iOS10LocalNotification;
+- (void)localNotificationsInIOS10;
 @end

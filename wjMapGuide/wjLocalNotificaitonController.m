@@ -42,11 +42,11 @@
             [[UIApplication sharedApplication] cancelAllLocalNotifications];
         }
     }
-    
 }
 
-/* ios10的通知*/
-- (void)iOS10LocalNotification {
+
+
+- (void)localNotificationsInIOS10 {
     // 第一步: 引入框架 <UserNotifications/UserNotifications.h>
     // 第三步:发送通知
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
@@ -59,7 +59,7 @@
         // 消息的主题
         content.body = [NSString localizedUserNotificationStringForKey:@"已经到达目的地附近！" arguments:nil];
         // 消息的标题
-        content.title = [NSString localizedUserNotificationStringForKey:@"我来了提醒您" arguments:nil];
+        content.title = [NSString localizedUserNotificationStringForKey:@"美团订单提示" arguments:nil];
         // 消息的副标题
         content.subtitle = [NSString localizedUserNotificationStringForKey:@"请您注意周围环境！" arguments:nil];
         content.sound = [UNNotificationSound defaultSound];
@@ -67,28 +67,22 @@
         // 必写代码
         content.categoryIdentifier = @"notificationID";
         content.launchImageName = @"distance20";
-        
-//        // 添加图片\音乐等
-//        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"distance20" ofType:@"png"];
-//        NSError *error;
-//        UNNotificationAttachment *att = [UNNotificationAttachment attachmentWithIdentifier:@"picture" URL:[NSURL fileURLWithPath:path1] options:nil error:&error];
-//        content.attachments = @[att];
-        
-        // 添加触发器
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3.0f repeats:NO];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"request" content:content trigger:trigger];
         // 在通知中心中添加
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
         }];
         
+        
         // 第四步:添加用户的交互
-        UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"action.open" title:@"打开" options:UNNotificationActionOptionForeground];
-        UNNotificationAction *action3 = [UNNotificationAction actionWithIdentifier:@"action.close" title:@"关闭" options:UNNotificationActionOptionDestructive];
-        UNNotificationCategory *catagory = [UNNotificationCategory categoryWithIdentifier:@"notificationID" actions:@[action2, action3] intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+        UNNotificationAction *action1 = [UNNotificationAction actionWithIdentifier:@"action.open" title:@"打开" options:UNNotificationActionOptionForeground];
+        UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"action.close" title:@"关闭" options:UNNotificationActionOptionDestructive];
+        UNNotificationCategory *catagory = [UNNotificationCategory categoryWithIdentifier:@"notificationID" actions:@[action1, action2] intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
         [center setNotificationCategories:[NSSet setWithObject:catagory]];
         
     }];
 }
+
 
 
 @end
