@@ -15,7 +15,6 @@
 		9B4B1E881E2522C600ECAD4E /* WJNSAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B1E871E2522C600ECAD4E /* WJNSAttributed.m */; };
 		9B4B1E8C1E2524E700ECAD4E /* Search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B1E8B1E2524E700ECAD4E /* Search@2x.png */; };
 		9B6ABB801E286A800017510A /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B6ABB7F1E286A800017510A /* AMap.bundle */; };
-		9B6ABB831E28C9070017510A /* wjLocalNotificaitonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6ABB821E28C9070017510A /* wjLocalNotificaitonController.m */; };
 		9B6ABB861E28CA090017510A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6ABB841E28CA090017510A /* UserNotifications.framework */; };
 		9B6ABB871E28CA090017510A /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6ABB851E28CA090017510A /* UserNotificationsUI.framework */; };
 		9B6ABB911E28CC490017510A /* distance20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6ABB881E28CC490017510A /* distance20@2x.png */; };
@@ -42,6 +41,10 @@
 		9B7697551E2CBBDF008C3242 /* citySearchBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7697531E2CBBDF008C3242 /* citySearchBg@2x.png */; };
 		9B7697561E2CBBDF008C3242 /* citySearchBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7697541E2CBBDF008C3242 /* citySearchBg@3x.png */; };
 		9B76975A1E2CCC21008C3242 /* wjSaveFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7697591E2CCC21008C3242 /* wjSaveFile.m */; };
+		9B83C7131E30627700109666 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B83C7121E30627700109666 /* Reachability.m */; };
+		9B83C7181E306F6900109666 /* wjLocalNotificaitonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B83C7151E306F6900109666 /* wjLocalNotificaitonController.m */; };
+		9B83C7191E306F6900109666 /* wjSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B83C7171E306F6900109666 /* wjSearchResultController.m */; };
+		9B83C71C1E306FB400109666 /* wjNetWorkJudgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B83C71B1E306FB400109666 /* wjNetWorkJudgeController.m */; };
 		9B8B5D3F1E2F04A300496851 /* saveCityName.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B5D3E1E2F04A300496851 /* saveCityName.plist */; };
 		9BB4C64C1E232410007EA4B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C64B1E232410007EA4B1 /* main.m */; };
 		9BB4C64F1E232410007EA4B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C64E1E232410007EA4B1 /* AppDelegate.m */; };
@@ -61,7 +64,6 @@
 		9BB4C67A1E232916007EA4B1 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB4C6791E232916007EA4B1 /* JavaScriptCore.framework */; };
 		9BB4C6841E2332D7007EA4B1 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4C6831E2332D7007EA4B1 /* location@2x.png */; };
 		9BB4C6881E237F67007EA4B1 /* wjMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C6871E237F67007EA4B1 /* wjMapController.m */; };
-		9BB4C68B1E237FA6007EA4B1 /* wjSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4C68A1E237FA6007EA4B1 /* wjSearchResultController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +78,6 @@
 		9B4B1E871E2522C600ECAD4E /* WJNSAttributed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJNSAttributed.m; path = "utils/富文本/WJNSAttributed.m"; sourceTree = "<group>"; };
 		9B4B1E8B1E2524E700ECAD4E /* Search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Search@2x.png"; path = "resource/Search@2x.png"; sourceTree = "<group>"; };
 		9B6ABB7F1E286A800017510A /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
-		9B6ABB811E28C9070017510A /* wjLocalNotificaitonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wjLocalNotificaitonController.h; sourceTree = "<group>"; };
-		9B6ABB821E28C9070017510A /* wjLocalNotificaitonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wjLocalNotificaitonController.m; sourceTree = "<group>"; };
 		9B6ABB841E28CA090017510A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		9B6ABB851E28CA090017510A /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		9B6ABB881E28CC490017510A /* distance20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "distance20@2x.png"; path = "resource/distance20@2x.png"; sourceTree = "<group>"; };
@@ -117,6 +117,14 @@
 		9B7697541E2CBBDF008C3242 /* citySearchBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "citySearchBg@3x.png"; path = "resource/citySearchBg@3x.png"; sourceTree = "<group>"; };
 		9B7697581E2CCC21008C3242 /* wjSaveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wjSaveFile.h; path = "utils/本地文件/wjSaveFile.h"; sourceTree = "<group>"; };
 		9B7697591E2CCC21008C3242 /* wjSaveFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wjSaveFile.m; path = "utils/本地文件/wjSaveFile.m"; sourceTree = "<group>"; };
+		9B83C7111E30627700109666 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "utils/网络判断/Reachability.h"; sourceTree = "<group>"; };
+		9B83C7121E30627700109666 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "utils/网络判断/Reachability.m"; sourceTree = "<group>"; };
+		9B83C7141E306F6900109666 /* wjLocalNotificaitonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wjLocalNotificaitonController.h; path = controller/wjLocalNotificaitonController.h; sourceTree = "<group>"; };
+		9B83C7151E306F6900109666 /* wjLocalNotificaitonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wjLocalNotificaitonController.m; path = controller/wjLocalNotificaitonController.m; sourceTree = "<group>"; };
+		9B83C7161E306F6900109666 /* wjSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wjSearchResultController.h; path = controller/wjSearchResultController.h; sourceTree = "<group>"; };
+		9B83C7171E306F6900109666 /* wjSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wjSearchResultController.m; path = controller/wjSearchResultController.m; sourceTree = "<group>"; };
+		9B83C71A1E306FB400109666 /* wjNetWorkJudgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wjNetWorkJudgeController.h; path = controller/wjNetWorkJudgeController.h; sourceTree = "<group>"; };
+		9B83C71B1E306FB400109666 /* wjNetWorkJudgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wjNetWorkJudgeController.m; path = controller/wjNetWorkJudgeController.m; sourceTree = "<group>"; };
 		9B8B5D3E1E2F04A300496851 /* saveCityName.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = saveCityName.plist; sourceTree = "<group>"; };
 		9BB4C6471E232410007EA4B1 /* wjMapGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wjMapGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB4C64B1E232410007EA4B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,8 +149,6 @@
 		9BB4C6831E2332D7007EA4B1 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location@2x.png"; path = "resource/location@2x.png"; sourceTree = "<group>"; };
 		9BB4C6861E237F67007EA4B1 /* wjMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wjMapController.h; path = controller/wjMapController.h; sourceTree = "<group>"; };
 		9BB4C6871E237F67007EA4B1 /* wjMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = wjMapController.m; path = controller/wjMapController.m; sourceTree = "<group>"; };
-		9BB4C6891E237FA6007EA4B1 /* wjSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wjSearchResultController.h; sourceTree = "<group>"; };
-		9BB4C68A1E237FA6007EA4B1 /* wjSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wjSearchResultController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +245,15 @@
 			name = "本地文件";
 			sourceTree = "<group>";
 		};
+		9B83C7101E305CFD00109666 /* 网络判断 */ = {
+			isa = PBXGroup;
+			children = (
+				9B83C7111E30627700109666 /* Reachability.h */,
+				9B83C7121E30627700109666 /* Reachability.m */,
+			);
+			name = "网络判断";
+			sourceTree = "<group>";
+		};
 		9BB4C63E1E232410007EA4B1 = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +301,7 @@
 		9BB4C6611E2324FD007EA4B1 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				9B83C7101E305CFD00109666 /* 网络判断 */,
 				9B7697571E2CCBE2008C3242 /* 本地文件 */,
 				9B7697241E2CAF7C008C3242 /* 拼音搜索 */,
 				9B7697231E2CAF05008C3242 /* 城市选择 */,
@@ -357,10 +373,12 @@
 			children = (
 				9BB4C6861E237F67007EA4B1 /* wjMapController.h */,
 				9BB4C6871E237F67007EA4B1 /* wjMapController.m */,
-				9BB4C6891E237FA6007EA4B1 /* wjSearchResultController.h */,
-				9BB4C68A1E237FA6007EA4B1 /* wjSearchResultController.m */,
-				9B6ABB811E28C9070017510A /* wjLocalNotificaitonController.h */,
-				9B6ABB821E28C9070017510A /* wjLocalNotificaitonController.m */,
+				9B83C7141E306F6900109666 /* wjLocalNotificaitonController.h */,
+				9B83C7151E306F6900109666 /* wjLocalNotificaitonController.m */,
+				9B83C7161E306F6900109666 /* wjSearchResultController.h */,
+				9B83C7171E306F6900109666 /* wjSearchResultController.m */,
+				9B83C71A1E306FB400109666 /* wjNetWorkJudgeController.h */,
+				9B83C71B1E306FB400109666 /* wjNetWorkJudgeController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -463,7 +481,6 @@
 				9B7697491E2CAFBF008C3242 /* CityButton.m in Sources */,
 				9B76973C1E2CAFB1008C3242 /* PinyinHelper.m in Sources */,
 				9B05C0181E260615008F500D /* ProgressHUD.m in Sources */,
-				9B6ABB831E28C9070017510A /* wjLocalNotificaitonController.m in Sources */,
 				9B7697481E2CAFBF008C3242 /* ButtonGroupView.m in Sources */,
 				9BB4C64F1E232410007EA4B1 /* AppDelegate.m in Sources */,
 				9BB4C6881E237F67007EA4B1 /* wjMapController.m in Sources */,
@@ -472,15 +489,18 @@
 				9B7697371E2CAFB1008C3242 /* ChineseToPinyinResource.m in Sources */,
 				9B76974B1E2CAFBF008C3242 /* CityItem.m in Sources */,
 				9B7697381E2CAFB1008C3242 /* HanyuPinyinOutputFormat.m in Sources */,
+				9B83C7181E306F6900109666 /* wjLocalNotificaitonController.m in Sources */,
 				9B4B1E881E2522C600ECAD4E /* WJNSAttributed.m in Sources */,
 				9B76973B1E2CAFB1008C3242 /* PinYinForObjc.m in Sources */,
+				9B83C7131E30627700109666 /* Reachability.m in Sources */,
 				9B7697361E2CAFB1008C3242 /* ChineseInclude.m in Sources */,
 				9B76973E1E2CAFB1008C3242 /* ZYPinYinSearch.m in Sources */,
+				9B83C71C1E306FB400109666 /* wjNetWorkJudgeController.m in Sources */,
 				9B7697391E2CAFB1008C3242 /* NSString+PinYin4Cocoa.m in Sources */,
-				9BB4C68B1E237FA6007EA4B1 /* wjSearchResultController.m in Sources */,
 				9B76973A1E2CAFB1008C3242 /* PinyinFormatter.m in Sources */,
 				9B76975A1E2CCC21008C3242 /* wjSaveFile.m in Sources */,
 				9B05C01B1E26072D008F500D /* UIImage+animatedGIF.m in Sources */,
+				9B83C7191E306F6900109666 /* wjSearchResultController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

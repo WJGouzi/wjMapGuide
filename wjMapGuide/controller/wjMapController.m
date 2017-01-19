@@ -285,7 +285,6 @@ static NSString *localCityName = nil;
     // 避免再次modal的时候失败
     [self dismissViewControllerAnimated:NO completion:nil];
     [self presentViewController:cityListView animated:YES completion:nil];
-    
 }
 
 // 点击城市的按钮的代理

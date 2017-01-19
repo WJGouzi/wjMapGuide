@@ -59,7 +59,7 @@
         // 消息的主题
         content.body = [NSString localizedUserNotificationStringForKey:@"已经到达目的地附近！" arguments:nil];
         // 消息的标题
-        content.title = [NSString localizedUserNotificationStringForKey:@"美团订单提示" arguments:nil];
+        content.title = [NSString localizedUserNotificationStringForKey:@"我来了提醒您" arguments:nil];
         // 消息的副标题
         content.subtitle = [NSString localizedUserNotificationStringForKey:@"请您注意周围环境！" arguments:nil];
         content.sound = [UNNotificationSound defaultSound];
@@ -72,7 +72,6 @@
         // 在通知中心中添加
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
         }];
-        
         
         // 第四步:添加用户的交互
         UNNotificationAction *action1 = [UNNotificationAction actionWithIdentifier:@"action.open" title:@"打开" options:UNNotificationActionOptionForeground];
