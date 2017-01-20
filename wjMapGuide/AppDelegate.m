@@ -9,6 +9,7 @@
 #import"AppDelegate.h"
 #import "wjMapController.h"
 #import <UserNotifications/UserNotifications.h>
+#import "wjNetWorkJudgeController.h"
 
 @interface AppDelegate ()
 
@@ -29,10 +30,20 @@
     // 本地通知的设置
     [self notificationSettingsWithApplication:application];
     
+    [self monitoryNetWorkMode];
+    
     return YES;
 }
 
-// 本地通知的设置
+#pragma mark - 检测网络
+- (void)monitoryNetWorkMode {
+    
+    wjNetWorkJudgeController *netWorkJudge = [wjNetWorkJudgeController sharedNetWorkJudgeManager];
+    [netWorkJudge netWorkMonitory];
+}
+
+
+#pragma mark - 本地通知的设置
 - (void)notificationSettingsWithApplication:(UIApplication *)application {
     // 这是iOS8~iOS9的适配
 //    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {

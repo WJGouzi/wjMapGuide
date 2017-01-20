@@ -118,7 +118,6 @@ static NSString *localCityName = nil;
 - (void)someFunctionSettings {
     // 配置APPKey
     [AMapServices sharedServices].apiKey = appKey;
-    // 允许https的访问
     [AMapServices sharedServices].enableHTTPS = YES;
     // 显示城市的名字
     wjSaveFile *saveFile = [[wjSaveFile alloc] init];

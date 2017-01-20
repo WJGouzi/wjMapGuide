@@ -10,4 +10,7 @@
 
 @interface wjNetWorkJudgeController : UIViewController
 
++ (wjNetWorkJudgeController *)sharedNetWorkJudgeManager;
+
+-(void)netWorkMonitory;
 @end
