@@ -29,7 +29,7 @@
     
     // 本地通知的设置
     [self notificationSettingsWithApplication:application];
-    
+    // 网络制式变化检测
     [self monitoryNetWorkMode];
     
     return YES;
@@ -37,7 +37,6 @@
 
 #pragma mark - 检测网络
 - (void)monitoryNetWorkMode {
-    
     wjNetWorkJudgeController *netWorkJudge = [wjNetWorkJudgeController sharedNetWorkJudgeManager];
     [netWorkJudge netWorkMonitory];
 }

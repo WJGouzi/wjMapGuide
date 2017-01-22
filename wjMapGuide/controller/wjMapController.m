@@ -376,6 +376,8 @@ static NSString *localCityName = nil;
         [self.stopNotification removeFromSuperview];
         self.fenceManager.allowsBackgroundLocationUpdates = NO;
         [self removeAnnotationAndPolyLine];
+        // 以及需要移除地理围栏
+        [self.fenceManager removeGeoFenceRegionsWithCustomID:@"targetLocationCircle"];
         // 定位到当前位置
         [self locationClick:nil];
     }];
@@ -501,7 +503,7 @@ static NSString *localCityName = nil;
     if (region.fenceStatus == AMapGeoFenceRegionStatusInside) {
         NSLog(@"在区域内！");
         // 这里需要开启本地通知的回调
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (iOS(10.0)) {
                 [localNotificationVC localNotificationsInIOS10];
                 
@@ -512,6 +514,8 @@ static NSString *localCityName = nil;
             self.fenceManager.allowsBackgroundLocationUpdates = NO;
             [self removeAnnotationAndPolyLine];
             [self.stopNotification removeFromSuperview];
+            // 依然需要移除地理围栏
+            [self.fenceManager removeGeoFenceRegionsWithCustomID:@"targetLocationCircle"];
         });
     }
     if (region.fenceStatus == AMapGeoFenceRegionStatusOutside) {
