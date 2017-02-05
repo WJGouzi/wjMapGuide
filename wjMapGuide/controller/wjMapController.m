@@ -480,6 +480,7 @@ static NSString *localCityName = nil;
     return nil;
 }
 
+
 #pragma mark - 地理围栏的代理
 // 创建的围栏是否成功，以及查看所创建围栏的具体内容
 - (void)amapGeoFenceManager:(AMapGeoFenceManager *)manager didAddRegionForMonitoringFinished:(NSArray<AMapGeoFenceRegion *> *)regions customID:(NSString *)customID error:(NSError *)error {
@@ -489,6 +490,7 @@ static NSString *localCityName = nil;
         NSLog(@"创建成功");
     }
 }
+
 
 // 知道围栏的状态是否发生改变，或者定位是否失败
 - (void)amapGeoFenceManager:(AMapGeoFenceManager *)manager didGeoFencesStatusChangedForRegion:(AMapGeoFenceRegion *)region customID:(NSString *)customID error:(NSError *)error {
@@ -506,7 +508,6 @@ static NSString *localCityName = nil;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (iOS(10.0)) {
                 [localNotificationVC localNotificationsInIOS10];
-                
             } else {
                 [localNotificationVC startLocalNotification];
             }

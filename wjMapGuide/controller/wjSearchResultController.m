@@ -160,7 +160,7 @@
 //        return;
     }
     request.city = self.localCityName;
-    request.types = @"交通服务相关";
+//    request.types = @"交通服务相关"; // @"汽车服务" @"汽车销售 @"汽车维修" @"摩托车服务" @"餐饮服务" @"购物服务" @"生活服务" @"体育休闲服务" @"医疗保健服务" @"住宿服务" @"风景名胜" @"商务住宅" @"政府机构及社会团体" @"科教文化服务" @"交通设施服务" @"金融保险服务" @"公司企业" @"道路附属设施" @"地名地址信息" @"公共设施";
     request.requireExtension = YES;
     /*  搜索SDK 3.2.0 中新增加的功能，只搜索本城市的POI。*/
     request.cityLimit = YES;
@@ -234,10 +234,13 @@
     [self.searchArray removeAllObjects];
     [self.tableView reloadData];
     // 添加数据源
+    NSLog(@"有%ld个数据源", response.pois.count);
+    self.searchArray = [NSMutableArray arrayWithCapacity:response.pois.count];
     [self.searchArray addObjectsFromArray:response.pois];
     // 刷新列表
     [self.tableView reloadData];
 }
+
 
 #pragma mark - 处理公交站台的回调
 /* 公交站点回调*/
@@ -278,6 +281,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
+
 // 行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (self.searchVC.searchBar.text.length != 0) {
@@ -308,13 +312,15 @@
     }
     cell.textLabel.font = [UIFont systemFontOfSize:15.0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    NSLog(@"self.searchArray is %@", self.searchArray);
     if (indexPath.section == 0) {
         if (self.searchArray.count) {
-            NSString *province = [self.searchArray valueForKey:@"province"][indexPath.row];
+//            NSString *province = [self.searchArray valueForKey:@"province"][indexPath.row];
             NSString *city = [self.searchArray valueForKey:@"city"][indexPath.row];
+            NSString *district = [self.searchArray valueForKey:@"district"][indexPath.row];
             NSString *address = [self.searchArray valueForKey:@"address"][indexPath.row];
-            cell.textLabel.text = [NSString stringWithFormat:@"%@%@%@", province, city, address];
+//            NSString *shopID = [self.searchArray valueForKey:@"shopID"][indexPath.row];
+//            NSLog(@"shopID is %@", shopID);
+            cell.textLabel.text = [NSString stringWithFormat:@"%@%@%@", city, district, address];
         } else {
             cell.textLabel.text = self.searchVC.searchBar.text.length ? @"没有找到相关的街道或道路，请核对您输入的地址!" : nil;
         }
@@ -333,11 +339,12 @@
     return cell;
 }
 
+
 // cell的点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"index is %ld, %ld", indexPath.section, indexPath.row);
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"text is %@, sub is %@", cell.textLabel.text, [self.dataArray valueForKey:@"location"][indexPath.row]);
+//    NSLog(@"text is %@, sub is %@", cell.textLabel.text, [self.dataArray valueForKey:@"location"][indexPath.row]);
     wjMapController *vc = [[wjMapController alloc] init];
     vc.targetLocationName = cell.textLabel.text;
     AMapGeoPoint *locations = [indexPath.section == 0 ? self.searchArray : self.dataArray valueForKey:@"location"][indexPath.row];

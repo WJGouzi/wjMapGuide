@@ -55,7 +55,7 @@ static BOOL isFirstIn = NO;
     NSLog(@"networkChanged, currentStatus:%@, previousStatus:%@", @(status), @(previousStatus));
     
     if (status == RealStatusNotReachable) {
-        [self alertViewShowOnTheScreenWithTiltle:@"您的网络出现错误，请核查后稍后再次尝试！" andAcitonTitle:@"确定"];
+        [self alertViewShowOnTheScreenWithTiltle:@"您的网络信号较弱，请核查后再次连接！" andAcitonTitle:@"确定"];
     }
     if (status == RealStatusViaWiFi) {
 
