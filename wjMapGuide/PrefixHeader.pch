@@ -13,9 +13,9 @@
 // You willalso need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 /* 高德地图的APP key*/
-//#define appKey @"699a38927709e479a0506e0a749b2135" // 正式
+#define appKey @"699a38927709e479a0506e0a749b2135" // 正式
 
-#define appKey @"4cae7847aace6a4a5d5ca15a379e0301" // 测试
+//#define appKey @"4cae7847aace6a4a5d5ca15a379e0301" // 测试
 
 /* 以ip6s作为基准的屏幕适配*/
 #define screenRate (screenWidth)/375.0f

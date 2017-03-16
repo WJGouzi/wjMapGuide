@@ -195,6 +195,7 @@ static NSString *localCityName = nil;
     }];
 }
 
+
 // 显示实时的交通
 - (void)showTrafficInRealTime {
     self.showRealTraffic = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -358,14 +359,17 @@ static NSString *localCityName = nil;
 #pragma mark - 未到达指定的地点就停止本地的通知
 - (void)stopNotificationWhileNotArriveDestination {
     self.stopNotification = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.stopNotification.bounds = CGRectMake(0, 0, 90, 30);
+    self.stopNotification.bounds = CGRectMake(0, 0, 60, 30);
     self.stopNotification.center = CGPointMake(screenW - (30 * screenRate), screenH * 0.5);
     [self.stopNotification setTitle:@"停止通知" forState:UIControlStateNormal];
+    self.stopNotification.backgroundColor = [UIColor colorWithWhite:.8 alpha:0.9];
     [self.stopNotification setTitleColor:mainColor forState:UIControlStateNormal];
     self.stopNotification.titleLabel.textAlignment = NSTextAlignmentRight;
     self.stopNotification.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.stopNotification.layer.cornerRadius = 5;
+    self.stopNotification.layer.masksToBounds = YES;
     [self.mapView addSubview:self.stopNotification];
-    [self.stopNotification addTarget:self action:@selector(stopNotifi:) forControlEvents:UIControlEventTouchDown];
+    [self.stopNotification addTarget:self action:@selector(stopNotifi:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 // 停止通知的手势
