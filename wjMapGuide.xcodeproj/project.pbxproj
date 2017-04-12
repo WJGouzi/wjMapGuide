@@ -360,7 +360,6 @@
 			children = (
 				9B6ABB7F1E286A800017510A /* AMap.bundle */,
 				9BB4C67C1E233255007EA4B1 /* resource */,
-				9BB4C6631E23283A007EA4B1 /* New Group */,
 				9BB4C6621E23250B007EA4B1 /* others */,
 				9BB4C6611E2324FD007EA4B1 /* utils */,
 				9BB4C6851E237F57007EA4B1 /* controller */,
@@ -403,13 +402,6 @@
 				9BB4C67B1E232964007EA4B1 /* PrefixHeader.pch */,
 			);
 			name = others;
-			sourceTree = "<group>";
-		};
-		9BB4C6631E23283A007EA4B1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		9BB4C6641E23289A007EA4B1 /* Frameworks */ = {
